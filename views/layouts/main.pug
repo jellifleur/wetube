@@ -3,8 +3,10 @@ html
   head
     link(href="https://use.fontawesome.com/releases/v5.5.0/css/all.css", rel="stylesheet")
     title #{pageTitle} | #{siteName}
+    link(rel="stylesheet", href="/static/styles.css")
   body
     include ../partials/header
     main
       block content
     include ../partials/footer
+    script(src="/static/main.js")
