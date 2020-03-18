@@ -36,10 +36,11 @@
     "webpack-cli": "^3.3.11"
   },
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore 'scss'",
+    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore '.scss' --ignore 'static'",
     "dev:assets": "cross-env WEBPACK_ENV=development webpack -w",
     "build:assets": "WEBPACK_ENV=production webpack",
-    "tunnel": "lt --port 4001"
+    "tunnel": "lt --port 4001",
+    "ngrok": "ngrok http 4001"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
