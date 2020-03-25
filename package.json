@@ -40,9 +40,11 @@
     "webpack-cli": "^3.3.11"
   },
   "scripts": {
-    "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore '.scss' --ignore 'static'",
+    "dev:server": "nodemon --exec babel-node src/init.js --delay 2 --ignore '.scss' --ignore 'static'",
     "dev:assets": "cross-env WEBPACK_ENV=development webpack -w",
     "build:assets": "WEBPACK_ENV=production webpack",
+    "build:server": "babel src --out-dir build",
+    "build": "npm run build:server && npm run build:assets",
     "tunnel": "lt --port 4001",
     "ngrok": "ngrok http 4001"
   },
