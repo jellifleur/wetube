@@ -6,6 +6,7 @@
   "dependencies": {
     "@babel/core": "^7.8.4",
     "@babel/node": "^7.8.4",
+    "@babel/cli": "^7.8.4",
     "@babel/polyfill": "^7.8.7",
     "@babel/preset-env": "^7.8.4",
     "autoprefixer": "^9.7.4",
@@ -53,7 +54,6 @@
     "ngrok": "ngrok http 4001"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.10.0",
