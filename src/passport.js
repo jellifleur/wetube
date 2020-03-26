@@ -11,7 +11,7 @@ passport.use(
     new GithubStrategy({
         clientID: process.env.GH_ID,
         clientSecret: process.env.GH_SECRET,
-        callbackURL: `http://localhost:4001${routes.githubCallback}`
+        callbackURL: process.env.PRODUCTION ? `https://powerful-beach-95255.herokuapp.com${routes.githubCallback}` : `http://localhost:4001${routes.githubCallback}`
     }, githubLoginCallback)
 );
 
