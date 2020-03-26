@@ -4,9 +4,9 @@
   "description": "Cloning Youtube with Vanilla and NodeJS",
   "author": "Jaehee Choi",
   "dependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
     "@babel/node": "^7.8.4",
-    "@babel/cli": "^7.8.4",
     "@babel/polyfill": "^7.8.7",
     "@babel/preset-env": "^7.8.4",
     "autoprefixer": "^9.7.4",
@@ -20,6 +20,7 @@
     "css-loader": "^3.4.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-flash": "0.0.2",
     "express-session": "^1.17.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "get-blob-duration": "^1.1.0",
