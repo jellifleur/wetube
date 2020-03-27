@@ -1,4 +1,6 @@
 .videoBlock {
+  align-self: end;
+  margin-bottom:40px;
   video {
     margin-bottom: 10px;
     max-width: 100%;
@@ -8,13 +10,17 @@
     font-weight: 300;
     margin-bottom: 10px;
   }
+  .videoBlock__creator {
+    margin-right: 5px;
+  }
+  .videoBlock__views {
+    margin-left: 5px;
+  }
   .videoBlock__container {
-    height:100px;
     margin-bottom:10px;
     text-align: center;
-    background-color:#e8e8e8;
-    video {
-      height: 100px;
+    .videoBlock__thumbnail {
+      width: 100%;
     }
   }
 }
