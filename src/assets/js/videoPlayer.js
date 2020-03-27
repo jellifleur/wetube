@@ -129,14 +129,14 @@ function init() {
     playBtn.addEventListener("click", handlePlayClick);
     volumeBtn.addEventListener("click", handleVolumeClick);
     fullScreenBtn.addEventListener("click", goFullScreen);
+    volumeRange.addEventListener("input", handleDrag);
     videoPlayer.addEventListener("loadedmetadata", setTotalTime);
     videoPlayer.addEventListener("loadedmetadata", setVideoHeight);
     videoPlayer.addEventListener("ended", handleEnded);
-    volumeRange.addEventListener("input", handleDrag);
     setTimeout(() => {
         setTotalTime();
         setVideoHeight();
-    }, 500);
+    }, 300);
 }
 
 if (videoContainer) {
