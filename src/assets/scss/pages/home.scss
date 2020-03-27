@@ -5,10 +5,22 @@
   .videoBlock:first-child,
   .videoBlock:nth-child(2) {
     grid-column: span 3;
+    .videoBlock__container {
+      height:350px;
+      video {
+        height: 350px;
+      }
+    }
   }
   .videoBlock:nth-child(3),
   .videoBlock:nth-child(4),
   .videoBlock:nth-child(5) {
     grid-column: span 2;
+    .videoBlock__container {
+      height:200px;
+      video {
+        height: 200px;
+      }
+    }
   }
 }

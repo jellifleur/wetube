@@ -8,4 +8,13 @@
     font-weight: 300;
     margin-bottom: 10px;
   }
+  .videoBlock__container {
+    height:100px;
+    margin-bottom:10px;
+    text-align: center;
+    background-color:#e8e8e8;
+    video {
+      height: 100px;
+    }
+  }
 }
