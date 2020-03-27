@@ -28,13 +28,13 @@
     text-align: center;
     animation: flashAnimation 3s ease-in-out forwards;
     &.error {
-        background-color: #eb4d4b;
+        background-color: #eb3b5a;
     }
     &.success {
-        background-color: #6ab04c;  
+        background-color: #20bf6b;  
     }
     &.info {
-        background-color: #22a6b3;
+        background-color: #2d98da;
     }
     .flash-message__text {
         color:white;
