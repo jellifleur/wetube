@@ -41,6 +41,7 @@ function handleVolumeClick() {
 function exitFullScreen() {
     fullScreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
     fullScreenBtn.addEventListener("click", goFullScreen);
+    videoContainer.classList.remove("fullScreen");
     if (document.exitFullscreen) {
         document.exitFullscreen();
     } else if (document.mozCancelFullScreen) {
@@ -62,6 +63,7 @@ function goFullScreen() {
     } else if (videoContainer.msRequestFullscreen) {
         videoContainer.msRequestFullscreen();
     }
+    videoContainer.classList.add("fullScreen");
     fullScreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
     fullScreenBtn.removeEventListener("click", goFullScreen);
     fullScreenBtn.addEventListener("click", exitFullScreen);
@@ -126,6 +128,7 @@ function init() {
     volumeRange.addEventListener("input", handleDrag);
     videoPlayer.addEventListener("loadedmetadata", setTotalTime);
     videoPlayer.addEventListener("ended", handleEnded);
+    window.onload = setTotalTime();
 }
 
 if (videoContainer) {
