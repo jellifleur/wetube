@@ -126,7 +126,6 @@ function init() {
     volumeBtn.addEventListener("click", handleVolumeClick);
     fullScreenBtn.addEventListener("click", goFullScreen);
     volumeRange.addEventListener("input", handleDrag);
-    videoPlayer.addEventListener("loadedmetadata", setTotalTime);
     videoPlayer.addEventListener("ended", handleEnded);
     window.onload = setTotalTime();
 }
