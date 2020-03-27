@@ -1,6 +1,5 @@
 .header {
   background-color: white;
-  border-bottom: 1px solid #ececec;
   margin-bottom: 80px;
   .header__wrapper {
     padding: 10px 0px;
@@ -16,7 +15,7 @@
         height:30px;
       }
       i {
-        color: $red;
+        color: #222;
         font-size: 30px;
       }
       &:nth-child(2) {

@@ -1,14 +1,21 @@
-const videoPlayer = document.getElementById("jsVideoPlayer");
 
-const setVideoHeight = () => {
-    console.log("loade..");
-    if (videoPlayer.offsetHeight > 500) {
-        videoPlayer.classList.add("verticalVideo");
+
+
+window.addEventListener("load", () => {
+    const videoPlayer = document.getElementById("jsVideoPlayer");
+    const video = document.getElementById("jsVideo");
+
+    const setVideoHeight = () => {
+        console.log(video.clientHeight);
+        if (video.clientHeight > 500) {
+            videoPlayer.classList.add("verticalVideo");
+        }
     }
-}
 
-if (videoPlayer) {
-    const video = videoPlayer.querySelector("video");
-    video.addEventListener("loadeddata", setVideoHeight);
-}
-
+    console.log("ssssbbb" + videoPlayer.clientHeight);
+    if (video) {
+        setVideoHeight();
+        //video.addEventListener("loadeddata", setVideoHeight);
+        //document.addEventListener("DOMContentLoaded", setVideoHeight);
+    }
+});

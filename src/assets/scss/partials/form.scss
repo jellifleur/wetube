@@ -13,17 +13,19 @@
       width: 100%;
       padding-top: 10px;
       padding-bottom: 10px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
+      border-bottom: 1px solid #ccc;
       &:not(:last-child) {
         margin-bottom: 25px;
       }
     }
     textarea {
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
+      border-bottom: 1px solid #ccc;
       margin-bottom: 25px;
     }
     input[type="submit"] {
-      background-color: #3498db;
+      background-color: #222;
       color: white;
     }
   }

@@ -1,3 +1,20 @@
+.home__title {
+  padding: 0 50px;
+  margin: 120px 0 90px;
+  letter-spacing: 1.5px;
+  font-size: 30px;
+  font-weight: 500;
+  color: rgb(34, 34, 34);
+  span {
+
+    margin-left:30px;
+    letter-spacing: 1.2px;
+    font-size:14px;
+    font-weight: 200;
+    opacity: 0.4;
+  }
+}
+
 .home-videos {
   display: grid;
   grid-template-columns: repeat(4, minmax(150px, 1fr));
