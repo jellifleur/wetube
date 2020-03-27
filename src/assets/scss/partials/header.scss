@@ -1,8 +1,9 @@
 .header {
-  background-color: $red;
+  background-color: white;
+  border-bottom: 1px solid #ececec;
   margin-bottom: 50px;
   .header__wrapper {
-    padding: 5px 0px;
+    padding: 10px 0px;
     width: 100%;
     margin: 0 auto;
     max-width: 1200px;
@@ -11,7 +12,7 @@
     align-items: center;
     .header__column {
       i {
-        color: white;
+        color: $red;
         font-size: 30px;
       }
       &:nth-child(2) {
@@ -23,7 +24,7 @@
       }
       ul {
         display: flex;
-        color: white;
+        color: #666;
         font-weight: 600;
         text-transform: uppercase;
         li:not(:last-child) {
@@ -35,11 +36,13 @@
         input {
           padding: 7px 10px;
           width: 100%;
-          border-radius: 5px;
+          border-radius: 3px;
           font-size: 14px;
           color: $black;
           font-weight: 600;
           max-width: none;
+          box-shadow:none;
+          border: 1px solid #ccc;
           &::placeholder {
             font-weight: 300;
             color: rgba(0, 0, 0, 0.7);

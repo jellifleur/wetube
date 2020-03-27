@@ -2,59 +2,125 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  .videoPlayer {
+    width: 100%;
+    max-width: 850px;
+  }
   .video__info {
     width: 100%;
     max-width: 850px;
     margin-top: 25px;
+    padding-bottom:15px;
+    border-bottom:1px solid #ccc;
     button {
       width: 100px;
       margin-bottom: 25px;
     }
     .video__author {
-     a {
-       color: #3498db;
-     } 
+      margin-bottom: 15px;
+      a {
+        display: inline-block;
+        height: 50px;
+        color: #3498db;
+        font-weight: bold;
+        span {
+          position: relative;
+          top: -15px;
+        }
+      }
+      .u-avatar {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+      }
     }
     .video__title,
-    .video__views,
     .video__description {
       display: block;
       margin-bottom: 15px;
     }
+    .video__main {
+      padding-bottom: 15px;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 15px;
+    }
     .video__title {
       font-size: 22px;
-      font-weight: 300;
+      font-weight: 400;
+      color: #000;
     }
     .video__views {
       font-size: 14px;
+      margin-right:5px;
+    }
+    .video__date {
+      font-size: 14px;
+      margin-left:5px;
     }
     .video__description {
+      margin-left:60px;
       font-size: 16px;
     }
   }
   .video__comments {
+    width: 100%;
+    max-width: 850px;
     margin-top: 25px;
-    text-align: center;
     .video__comment-number {
       font-size: 18px;
     }
     .add__comment {
       margin-top: 25px;
       width: 100%;
+      padding-bottom: 10px;
+      .u-avatar {
+        position: relative;
+        top: 17px;
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+      }
       input {
         width: 100%;
       }
     }
     .video__comments-list {
-      margin-top: 50px;
+      margin-top: 30px;
       li {
-        background-color: #3498db;
-        color: white;
-        padding: 15px;
-        border-radius: 20px;
-        border-bottom-left-radius: 0px;
         &:not(:last-child) {
-          margin-bottom: 15px;
+          margin-bottom: 20px;
+        }
+        .comment__auth {
+          a {
+            display: inline-block;
+            height: 50px;
+            font-weight: bold;
+            span {
+              position: relative;
+              top: -15px;
+            }
+          }
+          .u-avatar {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+          }
+        }
+        p {
+          margin-top: 5px;
+          margin-left: 60px;
+        }
+        button {
+          width: auto;
+          margin: 10px 0 0 60px;
+          padding:0;
+          box-shadow: none;
+          color:#999;
+          font-weight: normal;
+          background-color: transparent;
+        }
+        button:hover {
+          text-decoration: underline;
         }
       }
     }

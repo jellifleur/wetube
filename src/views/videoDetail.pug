@@ -10,15 +10,19 @@ block content
       if loggedUser && video.creator.id === loggedUser.id
         a(href=routes.editVideo(video.id))
           button Edit video
-      h5.video__title=video.title
-      p.video__description=video.description
-      if video.views === 1
-        span.video__views 1 view
-      else
-        span.video__views #{video.views} views
+      .video__main
+        h5.video__title=video.title
+        if video.views === 1
+          span.video__views 1 view
+        else
+          span.video__views #{video.views} views
+        span •
+        span.video__date=video.updatedDate
       .video__author
-        |Uploaded by 
-        a(href=routes.userDetail(video.creator.id))=video.creator.name
+        a(href=routes.userDetail(video.creator.id))
+          img.u-avatar(src=video.creator.avatarUrl)
+          span=video.creator.name
+      p.video__description=video.description
     .video__comments
       if video.comments.length === 1
         span.video__comment-number 
@@ -28,11 +32,18 @@ block content
         span.video__comment-number
           span#jsCommentNumber=video.comments.length
           |  comments
-      form.add__comment#jsAddComment
+      if loggedUser
+        form.add__comment#jsAddComment
+          img.u-avatar(src=loggedUser.avatarUrl)
           input(type="text", placeholder="Add a comment")
+          input(type="hidden", id="jsLoggedUser", value=loggedUser.name)
       ul.video__comments-list#jsCommentList
         each comment in video.comments.reverse()
           li
-            span=comment.text
+            .comment__auth
+              a(href=routes.userDetail(comment.creator.id))
+                img.u-avatar(src=comment.creator.avatarUrl)
+                span=comment.creator.name
+            p=comment.text
             if loggedUser && comment.creator.id === loggedUser.id
-              button(value=comment.id, class="jsDeleteCommentBtn") [x]
+              button(value=comment.id, class="jsDeleteCommentBtn") Delete

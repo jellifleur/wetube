@@ -18,7 +18,8 @@ export const postJoin = async (req, res, next) => {
         try {
             const user = await User({
                 name,
-                email
+                email,
+                avatarUrl: "https://wetube-j.s3.ap-northeast-2.amazonaws.com/avatar/user.png"
             });
             await User.register(user, password);
             next();
@@ -111,8 +112,14 @@ export const logout = (req, res) => {
     res.redirect(routes.home);
 }
 
-export const getMe = (req, res) => {
-    res.render("userDetail", { pageTitle: "User Detail", user:req.user });
+export const getMe = async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).populate("videos");
+        res.render("userDetail", { pageTitle: "User Detail", user });
+    } catch (error) {
+        req.flash("error", "User not found");
+        res.redirect(routes.home);
+    }
 }
 
 

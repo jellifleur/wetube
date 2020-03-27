@@ -1,4 +1,5 @@
 import axios from "axios";
+import { handlebtnDeleteCommentClick } from "./deleteComment";
 
 const addCommentForm = document.getElementById("jsAddComment");
 const commentList = document.getElementById("jsCommentList");
@@ -11,15 +12,32 @@ const increaseNumber = () => {
 }
 
 const addComment = (comment) => {
+    const loggedUserName = document.getElementById("jsLoggedUser");
+    const loggedUserAvatar = addCommentForm.querySelector(".u-avatar");
+
     const li = document.createElement("li");
+    const anchor = document.createElement("a");
     const span = document.createElement("span");
     const button = document.createElement("button");
-    span.innerHTML = comment;
-    li.appendChild(span);
+    const p = document.createElement("p");
+    const img = document.createElement("img");
+    const div = document.createElement("div");
+    
+    div.className="comment__auth";
+    span.innerHTML = loggedUserName.value;
+    img.src = loggedUserAvatar.src;
+    img.className = "u-avatar";
+    p.innerHTML = comment;
     button.value = commentId;
     button.classList.add("jsDeleteCommentBtn");
-    button.innerHTML = "[x]";
-    //button.addEventListener("click", deleteComment);
+    button.innerHTML = "Delete";
+    button.addEventListener("click", handlebtnDeleteCommentClick);
+
+    anchor.appendChild(img);
+    anchor.appendChild(span);
+    div.appendChild(anchor);
+    li.appendChild(div);
+    li.appendChild(p);
     li.appendChild(button);
     commentList.prepend(li);
     increaseNumber();

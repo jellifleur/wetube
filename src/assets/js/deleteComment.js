@@ -22,7 +22,7 @@ const requestDeleteComment = async (id) => {
     }
 }
 
-const handlebtnDeleteCommentClick = (event) => {
+export const handlebtnDeleteCommentClick = (event) => {
     currentBtn = event.target;
     const id = currentBtn.value;
     requestDeleteComment(id);

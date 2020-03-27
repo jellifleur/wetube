@@ -67,6 +67,10 @@ export const videoDetail = async(req, res) => {
                             path:"comments",
                             populate: { path:"creator"}
                         })
+        const updatedDate = 
+            `${video.createdAt.getFullYear()}.${video.createdAt.getMonth()+1 < 10 ? `0${video.createdAt.getMonth()+1}` : video.createdAt.getMonth()+1}.${video.createdAt.getDate() < 10 ? `0${video.createdAt.getDate()}` : video.createdAt.getDate()}`;
+
+        video.updatedDate = updatedDate;
         res.render("videoDetail", { pageTitle: video.title, video });
     } catch (error) {
         res.redirect(routes.home);
@@ -81,7 +85,7 @@ export const getEditVideo = async (req, res) => {
     } = req;
     try {
         const video = await Video.findById(id);
-        if (video.creator !== req.user.id) {
+        if (video.creator.toString() !== req.user.id) {
             throw Error();
         } else {
             res.render("editVideo", { pageTitle: `Edit ${video.title}`, video });
