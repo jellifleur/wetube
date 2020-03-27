@@ -16,8 +16,8 @@ const registerView = () => {
     });
 }
 
-function setVideoHeight() {
-    if (videoPlayer.clientHeight > 500) { 
+const setVideoHeight = () => {
+    if (videoPlayer.videoHeight > 500) {
         videoContainer.classList.add("verticalVideo");
     }
 }
@@ -125,20 +125,17 @@ function handleDrag(event) {
 }
 
 function init() {
-    if (videoContainer) {
-        videoPlayer.volume = 0.5;
-        playBtn.addEventListener("click", handlePlayClick);
-        volumeBtn.addEventListener("click", handleVolumeClick);
-        fullScreenBtn.addEventListener("click", goFullScreen);
-        videoPlayer.onloadedmetadata = function () {
-            console.log("new style");
-            setTotalTime();
-            setVideoHeight();
-        }
-        videoPlayer.addEventListener("ended", handleEnded);
-        volumeRange.addEventListener("input", handleDrag);
-    }
+    videoPlayer.volume = 0.5;
+    playBtn.addEventListener("click", handlePlayClick);
+    volumeBtn.addEventListener("click", handleVolumeClick);
+    fullScreenBtn.addEventListener("click", goFullScreen);
+    videoPlayer.addEventListener("loadedmetadata", setTotalTime);
+    videoPlayer.addEventListener("loadedmetadata", setVideoHeight);
+    videoPlayer.addEventListener("ended", handleEnded);
+    volumeRange.addEventListener("input", handleDrag);
+    setTimeout(setVideoHeight, 500);
 }
 
-
-document.addEventListener("DOMContentLoaded", init, false);
+if (videoContainer) {
+    init();
+}
