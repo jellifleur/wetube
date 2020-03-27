@@ -16,12 +16,6 @@ const registerView = () => {
     });
 }
 
-const setVideoHeight = () => {
-    if (videoPlayer.videoHeight > 500) {
-        videoContainer.classList.add("verticalVideo");
-    }
-}
-
 function handlePlayClick() {
     if (videoPlayer.paused) {
         videoPlayer.play();
@@ -131,12 +125,7 @@ function init() {
     fullScreenBtn.addEventListener("click", goFullScreen);
     volumeRange.addEventListener("input", handleDrag);
     videoPlayer.addEventListener("loadedmetadata", setTotalTime);
-    videoPlayer.addEventListener("loadedmetadata", setVideoHeight);
     videoPlayer.addEventListener("ended", handleEnded);
-    setTimeout(() => {
-        setTotalTime();
-        setVideoHeight();
-    }, 300);
 }
 
 if (videoContainer) {

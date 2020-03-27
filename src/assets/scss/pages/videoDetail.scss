@@ -5,6 +5,12 @@
   .videoPlayer {
     width: 100%;
     max-width: 850px;
+    max-height:500px;
+    background-color: #000;
+    video {
+      display: block;
+      max-height:500px;
+    }
   }
   .video__info {
     width: 100%;
