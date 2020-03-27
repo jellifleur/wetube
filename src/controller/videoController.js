@@ -50,6 +50,7 @@ export const postUpload = async(req, res) => {
     });
     req.user.videos.push(newVideo.id);
     req.user.save();
+    req.flash("success", "Video uploaded.");
     res.redirect(routes.videoDetail(newVideo.id));
 }
 
@@ -73,6 +74,7 @@ export const videoDetail = async(req, res) => {
         video.updatedDate = updatedDate;
         res.render("videoDetail", { pageTitle: video.title, video });
     } catch (error) {
+        req.flash("error", "Video not found.");
         res.redirect(routes.home);
     }
 }
@@ -91,6 +93,7 @@ export const getEditVideo = async (req, res) => {
             res.render("editVideo", { pageTitle: `Edit ${video.title}`, video });
         }
     } catch (error) {
+        req.flash("error", "Can't edit video.");
         res.redirect(routes.home);
     }
 }
@@ -102,8 +105,10 @@ export const postEditVideo = async(req, res) => {
     } = req;
     try {
         await Video.findByIdAndUpdate({ _id:id }, { title, description });
+        req.flash("success", "Video edited.");
         res.redirect(routes.videoDetail(id));
     } catch (error) {
+        req.flash("error", "Can't edit video.");
         res.redirect(routes.home);
     }
 };
@@ -120,9 +125,11 @@ export const deleteVideo = async(req, res) => {
             throw Error();
         } else {
             await Video.findByIdAndRemove({_id: id});
+            req.flash("success", "Video deleted.");
         }
     } catch (error) {
         console.log(error);
+        req.flash("error", "Can't delete video.");
     }
     res.redirect(routes.home);
 }

@@ -19,7 +19,7 @@ passport.use(
     new FacebookStrategy({
         clientID:process.env.FB_ID,
         clientSecret:process.env.FB_SECRET,
-        callbackURL:`https://9d4dd3ee.ngrok.io${routes.facebookCallback}`,
+        callbackURL:`https://powerful-beach-95255.herokuapp.com${routes.facebookCallback}`,
         profileFields: ["id", "displayName", "photos", "email"],
         scope: ["public_profile", "email"]
     }, facebookLoginCallback)

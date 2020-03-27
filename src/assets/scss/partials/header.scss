@@ -11,6 +11,10 @@
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     .header__column {
+      .u-avatar {
+        width:30px;
+        height:30px;
+      }
       i {
         color: $red;
         font-size: 30px;
@@ -29,6 +33,7 @@
         text-transform: uppercase;
         li:not(:last-child) {
           margin-right: 15px;
+          line-height: 32px;
         }
       }
       form {

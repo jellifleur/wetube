@@ -1,23 +1,28 @@
 @keyframes flashAnimation{
     0% {
+        opacity: 0;
         transform: translateY(-70px);
     }
     5% {
+        opacity: 1;
         transform: translateY(0px);
     }
     90% {
+        opacity: 1;
         transform: translateY(0px);
     }
     100% {
+        opacity: 0;
         transform: translateY(-70px);
     }
 }
 
 .flash-message__container {
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
+    top:10px;
+    left:50%;
+    width:400px;
+    margin-left:-200px;
     z-index:9;
     padding:20px;
     text-align: center;
