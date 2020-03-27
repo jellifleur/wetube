@@ -25,7 +25,7 @@ const videoMouseenterHandler = (event) => {
     timer = setTimeout(() => {
         const targetVideo = event.target;
         previewVideo(targetVideo);
-    }, 1000);
+    }, 500);
 }
 
 if (videoThumbnails.length > 0) {
