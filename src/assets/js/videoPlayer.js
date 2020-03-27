@@ -133,7 +133,10 @@ function init() {
     videoPlayer.addEventListener("loadedmetadata", setVideoHeight);
     videoPlayer.addEventListener("ended", handleEnded);
     volumeRange.addEventListener("input", handleDrag);
-    setTimeout(setVideoHeight, 500);
+    setTimeout(() => {
+        setTotalTime();
+        setVideoHeight();
+    }, 500);
 }
 
 if (videoContainer) {
