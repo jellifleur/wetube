@@ -16,6 +16,12 @@ const registerView = () => {
     });
 }
 
+function setVideoHeight() {
+    if (videoPlayer.clientHeight > 500) { 
+        videoContainer.classList.add("verticalVideo");
+    }
+}
+
 function handlePlayClick() {
     if (videoPlayer.paused) {
         videoPlayer.play();
@@ -119,15 +125,20 @@ function handleDrag(event) {
 }
 
 function init() {
-    videoPlayer.volume = 0.5;
-    playBtn.addEventListener("click", handlePlayClick);
-    volumeBtn.addEventListener("click", handleVolumeClick);
-    fullScreenBtn.addEventListener("click", goFullScreen);
-    videoPlayer.addEventListener("loadedmetadata", setTotalTime);
-    videoPlayer.addEventListener("ended", handleEnded);
-    volumeRange.addEventListener("input", handleDrag);
+    if (videoContainer) {
+        videoPlayer.volume = 0.5;
+        playBtn.addEventListener("click", handlePlayClick);
+        volumeBtn.addEventListener("click", handleVolumeClick);
+        fullScreenBtn.addEventListener("click", goFullScreen);
+        videoPlayer.onloadedmetadata = function () {
+            console.log("new style");
+            setTotalTime();
+            setVideoHeight();
+        }
+        videoPlayer.addEventListener("ended", handleEnded);
+        volumeRange.addEventListener("input", handleDrag);
+    }
 }
 
-if (videoContainer) {
-    init();
-}
+
+document.addEventListener("DOMContentLoaded", init, false);
